@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+/* === Tambahan style khusus === */
 .menu li > *:hover {
   background-color: transparent !important;
 }

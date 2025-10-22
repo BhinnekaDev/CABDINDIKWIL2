@@ -14,6 +14,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Cabang Dinas Pendidikan Wilayah II Curup",
+  icons: {
+    icon: "/cabdindikwil2_bengkulu.ico",
+  },
 };
 
 export default function RootLayout({
@@ -23,6 +26,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="icon"
+          href="/cabdindikwil2_bengkulu.ico"
+          type="image/x-icon"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

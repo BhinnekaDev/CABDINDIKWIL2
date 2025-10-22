@@ -15,7 +15,7 @@ export default function Navbar() {
   const pathname = (usePathname() || "").replace(/\/+$/, "") || "/";
 
   const baseBtn =
-    "btn border-none bg-transparent hover:bg-transparent hover:shadow-none transition-all duration-150";
+    "btn text-base border-none bg-transparent hover:bg-transparent hover:shadow-none transition-all duration-150";
   const hoverFx =
     "hover:text-[#90735f] hover:scale-[1.04] hover:text-xl hover:font-bold hover:bg-transparent";
   const activeFx = "text-[#90735f] font-bold text-xl uppercase ";
@@ -31,7 +31,7 @@ export default function Navbar() {
   const isChildActive = (childPath: string) => pathname.startsWith(childPath);
 
   return (
-    <div className="navbar bg-base-100 shadow-md px-4 lg:px-5 py-2 rounded-xl shadow-black/20 relative z-50">
+    <div className="navbar bg-base-100 shadow-md px-4 lg:px-20 py-2 rounded-xl shadow-black/20 relative z-50">
       <div className="flex flex-row items-center justify-center w-full gap-4">
         <div className="dropdown">
           <button
@@ -57,7 +57,7 @@ export default function Navbar() {
           </button>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-base-100 rounded-box w-56"
+            className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-base-100 rounded-box w-56 "
             role="menu"
           >
             {menus.map((m) => {
@@ -157,7 +157,7 @@ export default function Navbar() {
                   </button>
                   <ul
                     tabIndex={-1}
-                    className="dropdown-content menu bg-base-100 rounded-box w-56 p-2 shadow-sm left-1/6 -translate-x-1/2"
+                    className="dropdown-content menu bg-base-100 rounded-box w-56 p-2 shadow-sm left-1/2 -translate-x-1/2"
                     role="menu"
                   >
                     {m.children.map((c) => (

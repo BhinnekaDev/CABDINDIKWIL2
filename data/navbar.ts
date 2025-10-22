@@ -10,14 +10,16 @@ export const menus: MenuItem[] = [
       { label: "Tupoksi", path: "/Tupoksi" },
       { label: "Struktur Organisasi", path: "/StrukturOrganisasi" },
     ],
+    isActive: (p) => ["/Prakata", "/VisiMisi", "/Tupoksi", "/StrukturOrganisasi"].some((prefix) => p.startsWith(prefix)),
   },
   {
     label: "Info",
     children: [
-      { label: "Seputar Cabdin", path: "/404" },
-      { label: "Berita", path: "/404" },
+      { label: "Seputar CABDIN", path: "/SeputarCabdin" },
+      { label: "Berita", path: "/Berita" },
       { label: "SPMB", path: "/404" },
     ],
+    isActive: (p) => ["/SeputarCabdin", "/Berita"].some((prefix) => p.startsWith(prefix)),
   },
   {
     label: "Satpen",
