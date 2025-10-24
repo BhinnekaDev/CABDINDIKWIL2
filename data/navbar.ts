@@ -17,7 +17,7 @@ export const menus: MenuItem[] = [
     children: [
       { label: "Seputar CABDIN", path: "/SeputarCabdin" },
       { label: "Berita", path: "/Berita" },
-      { label: "SPMB", path: "/404" },
+      { label: "SPMB", path: "/SPMB" },
     ],
     isActive: (p) => ["/SeputarCabdin", "/Berita"].some((prefix) => p.startsWith(prefix)),
   },
