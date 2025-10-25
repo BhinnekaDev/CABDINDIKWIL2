@@ -49,6 +49,10 @@ export default function Footer() {
       {/* <div className="flex-1 text-black">
         <DayPicker defaultMonth={new Date(2025, 10)} />
       </div> */}
+      <footer className="py-4 text-center text-sm text-white">
+        © {new Date().getFullYear()} Cabang Dinas Pendidikan Wilayah II Curup.
+        All rights reserved.
+      </footer>
     </div>
   );
 }
