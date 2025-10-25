@@ -4,14 +4,14 @@ import Footer from "@/components/Footer";
 import BackgroundBerita from "@/assets/img/Background4.png";
 import Link from "next/link";
 import type { StaticImageData } from "next/image";
-import databerita from "@/data/berita";
+import dataBerita from "@/data/berita";
 
 interface BeritaDetailProps {
   params: { id: string };
 }
 
 export default function BeritaDetailPage({ params }: BeritaDetailProps) {
-  const Berita = databerita.find((item) => String(item.id) === params.id);
+  const Berita = dataBerita.find((item) => String(item.id) === params.id);
 
   if (!Berita)
     return (

@@ -19,7 +19,7 @@ export const menus: MenuItem[] = [
       { label: "Berita", path: "/Berita" },
       { label: "SPMB", path: "/SPMB" },
     ],
-    isActive: (p) => ["/SeputarCabdin", "/Berita"].some((prefix) => p.startsWith(prefix)),
+    isActive: (p) => ["/SeputarCabdin", "/Berita", "/SPMB"].some((prefix) => p.startsWith(prefix)),
   },
   {
     label: "Satpen",
@@ -33,9 +33,10 @@ export const menus: MenuItem[] = [
   {
     label: "Karya Guru & Siswa",
     children: [
-      { label: "Cerita Praktik Baik", path: "/404" },
-      { label: "Inovasi", path: "/404" },
+      { label: "Cerita Praktik Baik", path: "/CeritaPraktikBaik" },
+      { label: "Inovasi", path: "/Inovasi" },
     ],
+     isActive: (p) => ["/CeritaPraktikBaik", "/Inovasi"].some((prefix) => p.startsWith(prefix)),
   },
   {
     label: "Pendamping Satpen",
@@ -64,5 +65,6 @@ export const menus: MenuItem[] = [
       { label: "Pembuatan Usulan Pensiun", path: "/Pensiun" },
       { label: "Pembuatan Tubel dan Basis", path: "/TabelBasis" },
     ],
+    isActive: (p) => ["/RekomendasiPenelitian", "/RekomendasiPindahSekolah", "/LegalisirIjazahSKHU", "/PerbaikanIjzahSKHU", "/KehilanganIjazah", "/UsulanKarpeg", "/UsulanKaris", "/UsulanKarsu", "/KenaikanPangkatFungsional", "/Pensiun", "/TabelBasis"].some((prefix) => p.startsWith(prefix)),
   },
 ];
