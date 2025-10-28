@@ -39,13 +39,13 @@ export default function Prakata() {
             sekolah-sekolah di wilayah kerja kami.
           </p>
           <p>
-            Di sini, pengguna dapat mengakses berbagai fitur seperti{" "}
-            <b>
-              pelaporan kegiatan sekolah, supervisi daring, layanan administrasi
-              teknis
-            </b>
-            , hingga <b> dashboard koordinasi</b> yang memudahkan pemantauan dan
-            kolaborasi antar pihak.
+            Melalui platform ini, pengguna dapat mengakses beragam fitur yang
+            terintegrasi dalam dashboard SI PEKIK. Dashboard ini memuat
+            informasi profil Cabang Dinas, berita dan kegiatan pendidikan
+            terkini, data satuan pendidikan (SMA, SMK, dan SLB), karya inovatif
+            guru dan siswa, serta layanan administrasi teknis seperti
+            rekomendasi, legalisasi, usulan kepegawaian, hingga pengajuan
+            kenaikan pangkat dan tugas belajar.
           </p>
           <p>
             Kami percaya, dengan pemanfaatan teknologi informasi yang tepat,

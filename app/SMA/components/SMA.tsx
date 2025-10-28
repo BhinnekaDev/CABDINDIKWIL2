@@ -4,6 +4,7 @@ import { Daftar_SMA, Nama_SMA } from "@/data/sma-bengkulu";
 import { Sekolah } from "@/types/sekolah";
 import Image from "next/image";
 import BackgroundSekolah from "@/assets/img/Background4.png";
+import InformasiSMA from "@/assets/img/Satpen/SMA/Gambaran UMUM SMA.png";
 
 export default function SekolahSMA() {
   const [selectedNama, setSelectedNama] = useState("");
@@ -25,6 +26,16 @@ export default function SekolahSMA() {
       <div className="absolute inset-0 bg-white/20 backdrop-blur-xs -z-10"></div>
       <div className="relative z-10 w-full max-w-5xl mx-auto px-2">
         <section className="w-full text-center">
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-5">
+            <Image
+              src={InformasiSMA}
+              alt="Informasi Publik Sekolah SMA"
+              fill
+              className="object-cover object-center"
+              priority
+            />
+            <div className="absolute inset-0 bg-linear-gradient-to-b from-black/50 via-black/20 to-transparent"></div>
+          </div>
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-wide mb-8">
             PILIHAN SEKOLAH (SMA)
           </h1>
