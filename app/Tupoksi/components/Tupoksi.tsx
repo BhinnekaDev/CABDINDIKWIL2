@@ -14,27 +14,29 @@ export default function Tupoksi() {
       <div className="absolute inset-0 bg-white/20 backdrop-blur-xs -z-20"></div>
       <div className="relative z-10">
         <div className="text-center mb-6">
-          <h2 className="text-lg font-semibold">
+          <h2 className="lg:text-lg text-basefont-semibold">
             TUGAS POKOK DAN FUNGSI (TUPOKSI) PEJABAT DI CABANG DINAS PENDIDIKAN
             WILAYAH II CURUP berdasar PERGUB NOMOR 46 TAHUN 2018
           </h2>
         </div>
-        <div className="space-y-4 my-8 px-40">
+        <div className="space-y-4 my-8 lg:px-40 px-5">
           {/* KEPALA CABANG DINAS */}
-          <h3 className="text-lg font-bold">KEPALA CABANG DINAS</h3>
-          <p className="text-lg font-semibold">Tugas</p>
-          <p className="text-lg">
+          <h3 className="lg:text-lg text-base font-bold">
+            KEPALA CABANG DINAS
+          </h3>
+          <p className="lg:text-lg text-base font-semibold">Tugas</p>
+          <p className="lg:text-lg text-base">
             Kepala Cabang Dinas mempunyai tugas membantu Kepala Dinas dalam
             melaksanakan sebagian kewenangan desentralisasi dan tugas
             dekonsentrasi serta urusan pemerintahan yang menjadi kewenangan
             daerah Provinsi di wilayah kerjanya.
           </p>
-          <p className="text-lg font-semibold">
+          <p className="lg:text-lg text-base font-semibold">
             Fungsi Dalam melaksanakan tugas melalui enam (6) aspek utama
             sebagaimana disebutkan dalam Pasal 4 ayat (2), Kepala Cabang Dinas
             Pendidikan melaksanakan fungsi:
           </p>
-          <ul className="list-decimal list-inside pl-4 text-lg">
+          <ul className="list-decimal list-inside pl-4 lg:text-lg text-base">
             <li>Perumusan Kebijakan Teknis Operasional</li>
             <li>Pelaksanaan Pengkajian dan Analisis Teknis</li>
             <li>Pelaksanaan Kebijakan Teknis di Bidang Masing-Masing</li>
@@ -46,9 +48,11 @@ export default function Tupoksi() {
             </li>
           </ul>
           {/* SUBBAGIAN TATA USAHA */}
-          <h3 className="text-lg font-bold">SUBBAGIAN TATA USAHA</h3>
-          <p className="text-lg font-semibold">Tugas</p>
-          <p className="text-lg">
+          <h3 className="lg:text-lg text-base font-bold">
+            SUBBAGIAN TATA USAHA
+          </h3>
+          <p className="lg:text-lg text-base font-semibold">Tugas</p>
+          <p className="lg:text-lg text-base">
             Sub Bagian Tata Usaha mempunyai tugas menerima dan mengelola surat
             masuk, surat keluar, menyiapkan bahan rapat, memelihara,
             mengkoordinasikan arsip/laporan data, menyusun rencana kebutuhan dan
@@ -57,11 +61,11 @@ export default function Tupoksi() {
             keuangan, menginventarisasi dan memelihara aset, serta tugas lainnya
             yang diberikan atasan.
           </p>
-          <p className="text-lg font-semibold">
+          <p className="lg:text-lg text-base font-semibold">
             Fungsi Dalam melaksanakan tugas sebagaimana disebutkan dalam Pasal
             9, Sub Bagian Tata Usaha melaksanakan fungsi:
           </p>
-          <ul className="list-decimal list-inside pl-4 text-lg">
+          <ul className="list-decimal list-inside pl-4 lg:text-lg text-base">
             <li>Penyusunan Rencana Pelaksanaan Tugas</li>
             <li>Pemutakhiran dan Validasi Data</li>
             <li>Administrasi Surat dan Arsip</li>
@@ -84,11 +88,11 @@ export default function Tupoksi() {
             <li>Tugas Tambahan</li>
           </ul>
           {/* SEKSI PENDAIKTENG & PAKET C */}
-          <h3 className="text-lg font-bold uppercase">
+          <h3 className="lg:text-lg text-base font-bold uppercase">
             Seksi Pendidikan Menengah Atas dan Kelompok Belajar Paket C
           </h3>
-          <p className="text-lg font-semibold">Tugas</p>
-          <p className="text-lg">
+          <p className="lg:text-lg text-base font-semibold">Tugas</p>
+          <p className="lg:text-lg text-base">
             Seksi Pendidikan Menengah Atas dan Kelompok Belajar Paket C
             mempunyai tugas melaksanakan peningkatan mutu, relevansi, efisiensi
             dan efektivitas pengelolaan pendidikan menengah atas, dan kelompok
@@ -96,12 +100,12 @@ export default function Tupoksi() {
             teknis dalam pengelolaan pendidikan menengah atas, dan kelompok
             belajar paket C berdasarkan delapan standar nasional pendidikan.
           </p>
-          <p className="text-lg font-semibold">
+          <p className="lg:text-lg text-base font-semibold">
             Fungsi Dalam melaksanakan tugas sebagaimana disebutkan dalam Pasal
             10, Seksi Pendidikan Menengah Atas dan Kelompok Belajar Paket C
             melaksanakan fungsi:
           </p>
-          <ul className="list-decimal list-inside pl-4 text-lg">
+          <ul className="list-decimal list-inside pl-4 lg:text-lg text-base">
             <li>Penyusunan rencana pelaksanaan tugas</li>
             <li>Penyiapan bahan dan data</li>
             <li>Pembinaan, monitoring, dan evaluasi</li>
@@ -121,11 +125,11 @@ export default function Tupoksi() {
             <li>Pelaksanaan tugas lain yang diberikan atasan</li>
           </ul>
           {/* SEKSI PENDIDIKAN KEJURUAN & PENDIDIKAN KHUSUS */}
-          <h3 className="text-lg font-bold uppercase">
+          <h3 className="lg:text-lg text-base font-bold uppercase">
             Seksi Pendidikan Menengah Kejuruan dan Pendidikan Khusus (SMK/SLB)
           </h3>
-          <p className="text-lg font-semibold">Tugas</p>
-          <p className="text-lg">
+          <p className="lg:text-lg text-base font-semibold">Tugas</p>
+          <p className="lg:text-lg text-base">
             Seksi Pendidikan Menengah Kejuruan dan Pendidikan Khusus mempunyai
             tugas melaksanakan peningkatan mutu, relevansi, efisiensi dan
             efektivitas pengelolaan pendidikan menengah kejuruan dan pendidikan
@@ -133,12 +137,12 @@ export default function Tupoksi() {
             pengelolaan pendidikan menengah kejuruan dan pendidikan khusus
             berdasarkan delapan (8) standar nasional pendidikan.
           </p>
-          <p className="text-lg font-semibold">
+          <p className="lg:text-lg text-base font-semibold">
             Fungsi Dalam melaksanakan tugas sebagaimana disebutkan dalam Pasal
             10A, Seksi Pendidikan Menengah Kejuruan dan Pendidikan Khusus
             melaksanakan fungsi:
           </p>
-          <ul className="list-decimal list-inside pl-4 text-lg">
+          <ul className="list-decimal list-inside pl-4 lg:text-lg text-base">
             <li>Penyusunan rencana pelaksanaan tugas</li>
             <li>Penyiapan bahan dan data pelaksanaan tugas</li>
             <li>Pembinaan, monitoring, dan evaluasi kegiatan operasional</li>
@@ -162,8 +166,10 @@ export default function Tupoksi() {
             <li>Evaluasi dan penyusunan laporan pelaksanaan tugas</li>
             <li>Pelaksanaan tugas lain yang diberikan atasan</li>
           </ul>
-          <h3 className="text-lg font-bold">KELOMPOK JABATAN FUNGSIONAL</h3>
-          <ul className="list-decimal list-inside pl-4 text-lg">
+          <h3 className="lg:text-lg text-base font-bold">
+            KELOMPOK JABATAN FUNGSIONAL
+          </h3>
+          <ul className="list-decimal list-inside pl-4 lg:text-lg text-base">
             <li>
               Kelompok Jabatan Fungsional sebagaimana dimaksud dalam{" "}
               <b>Pasal 6 ayat (1) huruf d</b> mempunyai tugas melaksanakan

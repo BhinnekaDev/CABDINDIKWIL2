@@ -81,8 +81,8 @@ export default function SekolahSMK() {
               </label>
 
               {dataTerpilih ? (
-                <div className="overflow-x-auto rounded-xl border border-base-200 shadow-sm shadow-black mt-10">
-                  <table className="table">
+                <div className="w-full overflow-x-auto rounded-xl border border-base-200 shadow-sm shadow-black mt-10">
+                  <table className="table min-w-max">
                     <thead className="bg-[#90735f] text-base text-white font-semibold">
                       <tr>
                         <th>No</th>
