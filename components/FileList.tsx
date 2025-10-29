@@ -33,7 +33,7 @@ export default function FileList({
           <h3 className="text-xl font-semibold">
             Berkas untuk Keperluan Layanan
           </h3>
-          <h1 className="text-3xl font-extrabold uppercase">{title}</h1>
+          <h1 className="lg:text-3xl font-extrabold uppercase">{title}</h1>
         </div>
       )}
 
@@ -41,7 +41,7 @@ export default function FileList({
         {files.map((file) => (
           <li
             key={file.id}
-            className="flex items-center justify-between rounded-lg border bg-white px-4 py-3 shadow-sm hover:shadow-md"
+            className="flex lg:flex-row flex-col lg:space-y-0 space-y-4 items-center justify-between rounded-lg border bg-white px-4 py-3 shadow-sm hover:shadow-md"
           >
             <div className="flex items-center gap-4">
               <div className="rounded-md bg-gray-100 p-2 min-w-[42px] flex items-center justify-center">
