@@ -14,7 +14,7 @@ export default function Prakata() {
       <div className="absolute inset-0 bg-white/20 backdrop-blur-xs -z-20"></div>
       <div className="relative z-10">
         <div className="text-center mb-6">
-          <h1 className="text-3xl font-extrabold mb-4">
+          <h1 className="lg:text-3xl text-2xl font-extrabold mb-4">
             Selamat Datang di Website SI PEKIK!
           </h1>
           <h3 className="text-lg font-semibold">
@@ -22,7 +22,7 @@ export default function Prakata() {
           </h3>
         </div>
 
-        <div className="space-y-6 my-8 px-40">
+        <div className="space-y-6 my-8 lg:px-40 px-5">
           <h3 className="text-lg font-semibold">Halo, Sobat Pendidikan!</h3>
           <p>
             Selamat datang di <b>SI PEKIK</b>, platform digital yang dirancang

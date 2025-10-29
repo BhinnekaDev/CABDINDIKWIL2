@@ -15,9 +15,9 @@ export default function DataSMA() {
         className="object-cover object-center opacity-80 -z-20"
       />
       <div className="absolute inset-0 bg-white/20 backdrop-blur-xs -z-20"></div>
-      <div className="relative z-10 px-32">
+      <div className="relative z-10 lg:px-32 px-5">
         <div className="text-center mb-10">
-          <h1 className="text-3xl font-extrabold mb-4">
+          <h1 className="lg:text-3xl text-xl font-extrabold mb-4">
             Struktur Organisasi Cabang Dinas Pendidikan Wilayah II Curup
           </h1>
           <div className="card w-max-2xl">
@@ -31,7 +31,7 @@ export default function DataSMA() {
           </div>
         </div>
         <div className="text-center mb-6">
-          <h1 className="text-3xl font-extrabold mb-4">
+          <h1 className="lg:text-3xl text-xl font-extrabold mb-4">
             Dokumentasi Kantor Cabang Dinas Pendidikan Wilayah II Curup
           </h1>
           <div className="card w-max-2xl">
