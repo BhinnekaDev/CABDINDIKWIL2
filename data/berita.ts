@@ -5,7 +5,6 @@ import { templateContentItem } from "@/types/template-content";
 export const dataBerita: templateContentItem[] = [
   {
     id: 1,
-    slug: "gelar-karya-pm-kepsek",
     title: "Gelar Karya dan Talkshow Pelatihan Pembelajaran Mendalam (PM) Kelas Kepala Sekolah Gelombang 1 Jenjang SMP/SMA ",
     date: "Okt 15, 2025",
     publishedAt: "2025-10-13",
@@ -27,7 +26,6 @@ export const dataBerita: templateContentItem[] = [
   },
   {
     id: 2,
-    slug: "gelar-karya-pm-guru",
     title: "Gelar Karya dan Talkshow Pelatihan Pembelajaran Mendalam (PM) Kelas Guru Gelombang 1 Jenjang PKBM/TK/PAUD/SD/SMK/SLB ",
     date: "Okt 06, 2025",
     publishedAt: "2025-10-08",

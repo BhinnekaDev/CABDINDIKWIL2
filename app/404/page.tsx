@@ -34,11 +34,11 @@ export default function UnderConstruction() {
               <div>
                 <div className="mb-1 flex items-center justify-between text-sm">
                   <span className="font-medium">Progress</span>
-                  <span className="text-base-content/60">30%</span>
+                  <span className="text-base-content/60">98%</span>
                 </div>
                 <progress
                   className="progress progress-primary w-full"
-                  value={30}
+                  value={98}
                   max={100}
                 />
               </div>
