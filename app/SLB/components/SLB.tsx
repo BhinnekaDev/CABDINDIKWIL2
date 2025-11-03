@@ -37,7 +37,7 @@ export default function SekolahSMA() {
           <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-5">
             <Image
               src={InformasiSLB}
-              alt="Informasi Publik Sekolah SMA"
+              alt="Informasi Publik Sekolah SLB"
               fill
               className="object-cover object-center"
               priority
@@ -45,7 +45,7 @@ export default function SekolahSMA() {
           </div>
 
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-wide mb-8">
-            PILIHAN SEKOLAH (SMA)
+            PILIHAN SEKOLAH (SLB)
           </h1>
 
           {loading && <p className="text-lg text-gray-600">Memuat data...</p>}

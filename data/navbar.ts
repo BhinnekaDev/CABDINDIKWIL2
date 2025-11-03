@@ -38,14 +38,14 @@ export const menus: MenuItem[] = [
     ],
      isActive: (p) => ["/CeritaPraktikBaik", "/Inovasi"].some((prefix) => p.startsWith(prefix)),
   },
-  {
-    label: "Pendamping Satpen",
-    children: [
-      { label: "SMA", path: "/404" },
-      { label: "SMK", path: "/404" },
-      { label: "SLB", path: "/404" },
-    ],
-  },
+  // {
+  //   label: "Pendamping Satpen",
+  //   children: [
+  //     { label: "SMA", path: "/404" },
+  //     { label: "SMK", path: "/404" },
+  //     { label: "SLB", path: "/404" },
+  //   ],
+  // },
   {
     label: "Layanan",
     children: [
