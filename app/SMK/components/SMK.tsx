@@ -45,7 +45,7 @@ export default function SekolahSMK() {
           </div>
 
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-wide mb-8">
-            PILIHAN SEKOLAH (SMA)
+            PILIHAN SEKOLAH (SMK)
           </h1>
 
           {loading && <p className="text-lg text-gray-600">Memuat data...</p>}
