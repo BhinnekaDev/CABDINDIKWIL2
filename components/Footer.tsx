@@ -28,12 +28,12 @@ export default function Footer() {
         <nav>
           <h6 className="footer-title">Email</h6>
           <div className="grid grid-flow-col gap-4">
-            <MdEmail size={24} />
+            <HiPhone size={24} />
             <a>0812-7359-7127</a>
           </div>
           <h6 className="footer-title">Phone</h6>
           <div className="grid grid-flow-col gap-4">
-            <HiPhone size={24} />
+            <MdEmail size={24} />
             <a>rejang2land@gmail.com</a>
           </div>
           <h6 className="footer-title">Alamat Kantor</h6>
