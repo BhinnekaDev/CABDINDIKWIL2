@@ -19,7 +19,6 @@ export const useFooter = (): UseFooterReturn => {
     setLoading(true);
     setError(null);
 
-    // abort previous request
     if (abortControllerRef.current) {
       abortControllerRef.current.abort();
     }

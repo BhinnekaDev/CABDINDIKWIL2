@@ -6,10 +6,8 @@ import { useFooter } from "@/hooks/useFooter";
 import { HiBuildingOffice, HiPhone } from "react-icons/hi2";
 import { MdEmail } from "react-icons/md";
 export default function Footer() {
-  const { data, loading } = useFooter();
-
-  if (loading) return <p>Loading...</p>;
-  if (!data) return <p>Footer tidak ditemukan.</p>;
+  const { data } = useFooter();
+  if (!data) return;
   return (
     <div className="bg-[#90735f]">
       <footer className="footer sm:footer-horizontal  text-white p-10">
