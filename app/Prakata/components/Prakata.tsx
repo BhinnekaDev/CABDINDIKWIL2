@@ -1,71 +1,61 @@
+"use client";
 import Image from "next/image";
 import BackgroundPrakata from "@/assets/img/Background1.png";
+import { usePrakata } from "@/hooks/usePrakata";
 
 export default function Prakata() {
+  const { data, loading, error } = usePrakata("/prakata");
+
+  if (loading) {
+    return (
+      <div className="flex justify-center mb-3">
+        <span
+          className="loading loading-spinner text-[#90735f]"
+          style={{ width: "80px", height: "80px" }}
+        ></span>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="text-center py-10 text-red-500">{error.message}</div>
+    );
+  }
+
+  if (!data || data.length === 0) {
+    return <div className="text-center py-10">Data tidak ditemukan.</div>;
+  }
+
+  const item = data[0];
+
   return (
     <div className="relative py-6">
       <Image
         src={BackgroundPrakata}
-        alt="Logo Beranda"
+        alt="Background Prakata"
         fill
         priority
         className="object-cover object-center opacity-80 -z-20"
       />
+
       <div className="absolute inset-0 bg-white/20 backdrop-blur-xs -z-20"></div>
+
       <div className="relative z-10">
         <div className="text-center mb-6">
           <h1 className="lg:text-3xl text-2xl font-extrabold mb-4">
-            Selamat Datang di Website SI PEKIK!
+            {item.judul}
           </h1>
-          <h3 className="text-lg font-semibold">
-            (Sistem Informasi Pelaporan, Evaluasi, Koordinasi, dan Kinerja)
-          </h3>
+          <h3 className="text-lg font-semibold">{item.sub_judul}</h3>
         </div>
-
-        <div className="space-y-6 my-8 lg:px-40 px-5">
-          <h3 className="text-lg font-semibold">Halo, Sobat Pendidikan!</h3>
-          <p>
-            Selamat datang di <b>SI PEKIK</b>, platform digital yang dirancang
-            untuk memudahkan proses
-            <b> pelaporan, evaluasi, koordinasi, dan kinerja</b> di lingkungan
-            <b> Cabang Dinas Pendidikan Wilayah II Curup</b>.
-          </p>
-          <p>
-            Website ini hadir sebagai langkah nyata dalam mendukung
-            <b> transformasi digital layanan pendidikan</b>. Melalui SI PEKIK,
-            kami berupaya menghadirkan sistem yang
-            <b> lebih cepat, transparan, dan efisien </b>
-            dalam pengawasan, pembinaan, serta pelayanan teknis bagi
-            sekolah-sekolah di wilayah kerja kami.
-          </p>
-          <p>
-            Melalui platform ini, pengguna dapat mengakses beragam fitur yang
-            terintegrasi dalam dashboard SI PEKIK. Dashboard ini memuat
-            informasi profil Cabang Dinas, berita dan kegiatan pendidikan
-            terkini, data satuan pendidikan (SMA, SMK, dan SLB), karya inovatif
-            guru dan siswa, serta layanan administrasi teknis seperti
-            rekomendasi, legalisasi, usulan kepegawaian, hingga pengajuan
-            kenaikan pangkat dan tugas belajar.
-          </p>
-          <p>
-            Kami percaya, dengan pemanfaatan teknologi informasi yang tepat,
-            mutu pendidikan akan semakin meningkat dan pelayanan publik akan
-            menjadi lebih terbuka serta responsif.
-          </p>
-          <p>Terima kasih telah mengunjungi SI PEKIK.</p>
-          <p>
-            Mari bersama kita wujudkan{" "}
-            <b>pendidikan yang adaptif, inovatif, dan berintegritas</b> di era
-            digital! 🚀
-          </p>
-        </div>
-
-        <div className="text-center">
-          <h1 className="text-xl font-extrabold mb-4">Salam Hangat,</h1>
-          <h3 className="text-base font-semibold">
-            Tim SI PEKIK – Cabang Dinas Pendidikan Wilayah II Curup
-          </h3>
-        </div>
+        <div
+          className="space-y-6 my-8 lg:px-40 px-5"
+          dangerouslySetInnerHTML={{ __html: item.isi ?? "" }}
+        />
+        <div
+          className="text-center"
+          dangerouslySetInnerHTML={{ __html: item.penutup ?? "" }}
+        />
       </div>
     </div>
   );
