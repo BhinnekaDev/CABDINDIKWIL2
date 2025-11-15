@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import RekomenPindahSekolah from "./components/RekomPindahSekolah";
+import LayananPage from "@/components/Layanan";
 import Footer from "@/components/Footer";
 import React from "react";
 
@@ -8,7 +8,10 @@ export default function RekomendasiPindahSekolah() {
     <div>
       <Navbar />
       <main>
-        <RekomenPindahSekolah />
+        <LayananPage
+          layananType="Rekomendasi_Pindah_Sekolah"
+          title="Rekomendasi Pindah Sekolah"
+        />
       </main>
       <Footer />
     </div>

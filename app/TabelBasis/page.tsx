@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import TabelBasis from "./components/TabelBasis";
+import LayananPage from "@/components/Layanan";
 import Footer from "@/components/Footer";
 import React from "react";
 
@@ -8,7 +8,10 @@ export default function PembuatanTabelBasis() {
     <div>
       <Navbar />
       <main>
-        <TabelBasis />
+        <LayananPage
+          layananType="Tabel_Basis"
+          title="Pembuatan Tabel dan Basis"
+        />
       </main>
       <Footer />
     </div>

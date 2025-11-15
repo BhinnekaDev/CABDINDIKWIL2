@@ -2,7 +2,6 @@
 
 import React from "react";
 import { FileItem } from "../types/file";
-import Link from "next/link";
 import FileTypeBadge from "@/components/FileTypeBadge";
 
 type Props = {
@@ -12,20 +11,7 @@ type Props = {
   className?: string;
 };
 
-export default function FileList({
-  title,
-  files,
-  showUploaded = true,
-  className = "",
-}: Props) {
-  if (!files || files.length === 0) {
-    return (
-      <div className={`text-center py-8 text-sm text-gray-500 ${className}`}>
-        Tidak ada berkas.
-      </div>
-    );
-  }
-
+export default function FileList({ title, files, className = "" }: Props) {
   return (
     <div className={className}>
       {title && (
@@ -61,9 +47,6 @@ export default function FileList({
                 <div className="text-xs text-gray-500">
                   {file.filename}
                   {file.size ? ` • ${file.size}` : ""}
-                  {showUploaded && file.uploaded
-                    ? ` • Diunggah: ${file.uploaded}`
-                    : ""}
                 </div>
               </div>
             </div>

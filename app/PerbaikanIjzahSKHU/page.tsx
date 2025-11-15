@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import PerbaikanIjazahSKHUN from "./components/PerbaikanBerkas";
+import LayananPage from "@/components/Layanan";
 import Footer from "@/components/Footer";
 import React from "react";
 
@@ -8,7 +8,10 @@ export default function PerbaikanIjazahSKHU() {
     <div>
       <Navbar />
       <main>
-        <PerbaikanIjazahSKHUN />
+        <LayananPage
+          layananType="Perbaikan_Ijzah_SKHU"
+          title="Surat Keterangan Kesalahan Penulisan Ijazah & SKHU (SMA/SMK/SLB)"
+        />
       </main>
       <Footer />
     </div>

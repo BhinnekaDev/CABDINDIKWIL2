@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import Pensiun from "./components/Pensiun";
+import LayananPage from "@/components/Layanan";
 import Footer from "@/components/Footer";
 import React from "react";
 
@@ -8,7 +8,7 @@ export default function UsulanPensiun() {
     <div>
       <Navbar />
       <main>
-        <Pensiun />
+        <LayananPage layananType="Pensiun" title="Pembuatan Usulan Pensiun" />
       </main>
       <Footer />
     </div>

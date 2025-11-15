@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import UsulanKarsu from "./components/UsulanKartuSuami";
+import LayananPage from "@/components/Layanan";
 import Footer from "@/components/Footer";
 import React from "react";
 
@@ -8,7 +8,10 @@ export default function UsulanKartuSuami() {
     <div>
       <Navbar />
       <main>
-        <UsulanKarsu />
+        <LayananPage
+          layananType="Usulan_Karsu"
+          title="Pembuatan Usulan Kartu Suami (KARSU)"
+        />
       </main>
       <Footer />
     </div>

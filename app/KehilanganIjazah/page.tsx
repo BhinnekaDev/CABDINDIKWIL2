@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import HilangIjazah from "./components/KehilanganBerkas";
+import LayananPage from "@/components/Layanan";
 import Footer from "@/components/Footer";
 import React from "react";
 
@@ -8,7 +8,10 @@ export default function KehilanganIjazah() {
     <div>
       <Navbar />
       <main>
-        <HilangIjazah />
+        <LayananPage
+          layananType="Kehilangan_Ijazah"
+          title="Surat Keterangan Kehilangan Ijazah"
+        />
       </main>
       <Footer />
     </div>

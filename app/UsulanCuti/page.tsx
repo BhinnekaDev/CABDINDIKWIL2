@@ -3,15 +3,12 @@ import LayananPage from "@/components/Layanan";
 import Footer from "@/components/Footer";
 import React from "react";
 
-export default function UsulanKartuIstri() {
+export default function UsulanCuti() {
   return (
     <div>
       <Navbar />
       <main>
-        <LayananPage
-          layananType="Usulan_Karis"
-          title="Pembuatan Usulan Kartu Istri (KARIS)"
-        />
+        <LayananPage layananType="Cuti" title="Pembuatan Usulan Cuti" />
       </main>
       <Footer />
     </div>

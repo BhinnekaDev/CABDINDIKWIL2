@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import KenaikanPangkatFungs from "./components/KenaikanPangkatFungs";
+import LayananPage from "@/components/Layanan";
 import Footer from "@/components/Footer";
 import React from "react";
 
@@ -8,7 +8,10 @@ export default function KenaikanPangkatFungsional() {
     <div>
       <Navbar />
       <main>
-        <KenaikanPangkatFungs />
+        <LayananPage
+          layananType="Kenaikan_Pangkat_Fungsional"
+          title="Pembuatan Usulan Kenaikan Pangkat Fungsional"
+        />
       </main>
       <Footer />
     </div>
