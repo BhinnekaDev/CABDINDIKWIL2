@@ -1,14 +1,15 @@
 "use client";
 import { useMemo, useState } from "react";
 import useSekolah from "@/hooks/useSekolah";
+import { useInfografisSekolah } from "@/hooks/useInfografisSekolah";
 import Image from "next/image";
 import BackgroundSekolah from "@/assets/img/Background4.png";
-import InformasiSMK from "@/assets/img/Satpen/SMK SLB/smk.png";
 
 export default function SekolahSMK() {
   const [selectedNama, setSelectedNama] = useState("");
 
   const { data: rawData, loading, error, refetch } = useSekolah("SMK");
+  const { data } = useInfografisSekolah("SMK");
 
   const namaSekolah = useMemo(
     () => rawData?.map((s) => s.nama) ?? [],
@@ -34,16 +35,20 @@ export default function SekolahSMK() {
 
       <div className="relative z-10 w-full max-w-5xl mx-auto px-2">
         <section className="w-full text-center">
-          <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-5">
-            <Image
-              src={InformasiSMK}
-              alt="Informasi Publik Sekolah SMA"
-              fill
-              className="object-cover object-center"
-              priority
-            />
-          </div>
-
+          {data.map((item) => (
+            <div
+              className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-5"
+              key={item.id}
+            >
+              <Image
+                src={item.url_gambar}
+                alt="Informasi Publik Sekolah SMK"
+                fill
+                className="object-cover object-center"
+                priority
+              />
+            </div>
+          ))}
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-wide mb-8">
             PILIHAN SEKOLAH (SMK)
           </h1>
