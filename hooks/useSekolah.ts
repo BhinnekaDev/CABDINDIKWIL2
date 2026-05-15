@@ -38,13 +38,57 @@ function pickFirstString(obj: Record<string, unknown>, keys: string[]): string {
   return "";
 }
 
+function pickNestedString(obj: Record<string, unknown>, paths: string[]): string {
+  for (const path of paths) {
+    const parts = path.split(".");
+    let current: unknown = obj;
+    for (const part of parts) {
+      if (!isRecord(current)) break;
+      current = current[part];
+    }
+    if (typeof current === "string" && current.trim() !== "") return current.trim();
+    if (typeof current === "number" && !Number.isNaN(current)) return String(current).trim();
+  }
+  return "";
+}
+
 function normalizeSekolah(s: Record<string, unknown>): Sekolah {
   const npsn = pickFirstString(s, ["npsn", "NPSN", "npsn_sekolah"]);
   const nama = pickFirstString(s, ["nama", "nama_sekolah", "name"]);
-  const alamat = pickFirstString(s, ["alamat", "address"]);
-  const kelurahan = pickFirstString(s, ["kelurahan", "kel", "village"]);
-  const rawStatus = pickFirstString(s, ["status", "kategori"]).toUpperCase();
-  const status: Sekolah["status"] = rawStatus === "NEGERI" ? "NEGERI" : "SWASTA";
+  const alamat = pickNestedString(s, ["lokasi.alamat", "alamat", "address"]);
+  const kelurahan = pickNestedString(s, ["lokasi.kelurahan", "kelurahan", "kel", "village"]);
+  const rawStatus = pickFirstString(s, ["status", "kategori"]);
+  const status: Sekolah["status"] = (() => {
+  const upperStatus = rawStatus.toUpperCase();
+  if (upperStatus === "NEGERI" || upperStatus === "NEGERI") return "NEGERI";
+  if (upperStatus === "SWASTA") return "SWASTA";
+  return "SWASTA";
+})();
+  
+  const jumlah_siswa = (() => {
+    const val = s["jumlah_siswa"] ?? s["jumlahSiswa"] ?? s["student_count"];
+    if (typeof val === "number") return val;
+    if (typeof val === "string") {
+      const parsed = parseInt(val, 10);
+      return isNaN(parsed) ? 0 : parsed;
+    }
+    return 0;
+  })();
+  const tautan_sekolah = (() => {
+    const val = s["tautan_sekolah"] ?? s["website"] ?? s["url"];
+    if (typeof val === "string") return val;
+    return null;
+  })();
+  const jenis_sekolah = (() => {
+    const nestedJenis = pickNestedString(s, ["jenis_sekolah.nama_jenis", "jenis.nama_jenis"]);
+    if (nestedJenis) return { nama_jenis: nestedJenis };
+    const jenisField = s["jenis_sekolah"];
+    if (isRecord(jenisField)) {
+      const namaJenis = pickFirstString(jenisField, ["nama_jenis", "nama", "type"]);
+      if (namaJenis) return { nama_jenis: namaJenis };
+    }
+    return { nama_jenis: "" };
+  })();
 
   return {
     npsn,
@@ -52,6 +96,9 @@ function normalizeSekolah(s: Record<string, unknown>): Sekolah {
     alamat,
     kelurahan,
     status,
+    jumlah_siswa,
+    tautan_sekolah,
+    jenis_sekolah,
   };
 }
 
@@ -67,7 +114,7 @@ export default function useSekolah(jenis: string | null): UseSekolahResult {
       ? process.env.NEXT_PUBLIC_API_URL.replace(/\/$/, "")
       : null;
 
-  const fetchUrl = baseUrl && jenis ? `${baseUrl}/satpen/filtered?jenis=${encodeURIComponent(jenis)}` : null;
+  const fetchUrl = baseUrl && jenis ? `${baseUrl}/satpen?jenis=${encodeURIComponent(jenis)}` : null;
 
   const fetchData = useCallback(async () => {
     if (!fetchUrl) {
@@ -77,7 +124,6 @@ export default function useSekolah(jenis: string | null): UseSekolahResult {
       return;
     }
 
-    // abort previous if any
     controllerRef.current?.abort();
     const ctrl = new AbortController();
     controllerRef.current = ctrl;
@@ -96,7 +142,6 @@ export default function useSekolah(jenis: string | null): UseSekolahResult {
       const cleaned = arr.map((item) => normalizeSekolah(item));
       setData(cleaned);
     } catch (err: unknown) {
-      // jika abort, jangan set error
       if (isError(err) && (err as Error).name === "AbortError") {
         // no-op
       } else if (isError(err)) {
@@ -109,7 +154,6 @@ export default function useSekolah(jenis: string | null): UseSekolahResult {
         setData(null);
       }
     } finally {
-      // selalu reset loading
       setLoading(false);
     }
   }, [fetchUrl]);

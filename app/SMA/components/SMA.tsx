@@ -4,21 +4,27 @@ import useSekolah from "@/hooks/useSekolah";
 import { useInfografisSekolah } from "@/hooks/useInfografisSekolah";
 import Image from "next/image";
 import BackgroundSekolah from "@/assets/img/Background4.png";
+import { AiFillWarning } from "react-icons/ai";
 
 export default function SekolahSMA() {
   const [selectedNama, setSelectedNama] = useState("");
 
   const { data: rawData, loading, error, refetch } = useSekolah("SMA");
-  const { data } = useInfografisSekolah("SMA");
+  const { data: infografisData, loading: infografisLoading } =
+    useInfografisSekolah("SMA");
 
-  const namaSekolah = useMemo(
-    () => rawData?.map((s) => s.nama) ?? [],
-    [rawData]
-  );
+  const data = useMemo(() => {
+    if (!rawData) return [];
+    return rawData.filter(
+      (sekolah) => sekolah.jenis_sekolah.nama_jenis.toUpperCase() === "SMA",
+    );
+  }, [rawData]);
+
+  const namaSekolah = useMemo(() => data.map((s) => s.nama) ?? [], [data]);
 
   const dataTerpilih = useMemo(
-    () => rawData?.find((s) => s.nama === selectedNama),
-    [selectedNama, rawData]
+    () => data.find((s) => s.nama === selectedNama),
+    [selectedNama, data],
   );
 
   return (
@@ -33,22 +39,26 @@ export default function SekolahSMA() {
 
       <div className="absolute inset-0 bg-white/20 backdrop-blur-xs -z-10"></div>
 
-      <div className="relative z-10 w-full max-w-5xl mx-auto px-2">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-2">
         <section className="w-full text-center">
-          {data.map((item) => (
-            <div
-              className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-5"
-              key={item.id}
-            >
-              <Image
-                src={item.url_gambar}
-                alt="Informasi Publik Sekolah SMA"
-                fill
-                className="object-cover object-center"
-                priority
-              />
-            </div>
-          ))}
+          {!infografisLoading &&
+            infografisData &&
+            infografisData.length > 0 &&
+            infografisData.map((item) => (
+              <div
+                className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-5"
+                key={item.id}
+              >
+                <Image
+                  src={item.url_gambar}
+                  alt="Informasi Publik Sekolah SMA"
+                  fill
+                  className="object-cover object-center"
+                  priority
+                />
+              </div>
+            ))}
+
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-wide mb-8">
             PILIHAN SEKOLAH (SMA)
           </h1>
@@ -65,55 +75,84 @@ export default function SekolahSMA() {
 
           {!loading && !error && (
             <>
-              <label className="form-control mb-8 text-left">
-                <div className="label">
-                  <span className="label-text text-lg font-semibold">
-                    Pilih Sekolah
+              {data.length === 0 ? (
+                <div className="alert alert-warning alert-outline shadow-lg mt-10">
+                  <AiFillWarning className="text-xl" />
+                  <span>
+                    Belum ada data sekolah SMK yang tersedia. Silakan cek
+                    kembali nanti.
                   </span>
                 </div>
-                <select
-                  className="select select-bordered select-lg w-full"
-                  value={selectedNama}
-                  onChange={(e) => setSelectedNama(e.target.value)}
-                >
-                  <option value="">——— PILIH SEKOLAH ———</option>
-                  {namaSekolah.map((nama) => (
-                    <option key={nama} value={nama}>
-                      {nama}
-                    </option>
-                  ))}
-                </select>
-              </label>
-
-              {dataTerpilih ? (
-                <div className="w-full overflow-x-auto rounded-xl border border-base-200 shadow-sm shadow-black mt-10">
-                  <table className="table min-w-max">
-                    <thead className="bg-[#90735f] text-base text-white font-semibold">
-                      <tr>
-                        <th>No</th>
-                        <th>NPSN</th>
-                        <th>Nama Satuan Pendidikan</th>
-                        <th>Alamat</th>
-                        <th>Kelurahan</th>
-                        <th>Status</th>
-                      </tr>
-                    </thead>
-                    <tbody className="text-base">
-                      <tr className="hover">
-                        <td>1</td>
-                        <td>{dataTerpilih.npsn}</td>
-                        <td className="font-medium">{dataTerpilih.nama}</td>
-                        <td>{dataTerpilih.alamat}</td>
-                        <td>{dataTerpilih.kelurahan}</td>
-                        <td className="uppercase">{dataTerpilih.status}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
               ) : (
-                <p className="text-lg font-medium text-gray-600 mt-10">
-                  Silakan pilih sekolah terlebih dahulu dari daftar di atas.
-                </p>
+                <>
+                  <label className="form-control mb-8 text-left">
+                    <div className="label">
+                      <span className="label-text text-lg font-semibold mb-4">
+                        Pilih Sekolah
+                      </span>
+                    </div>
+                    <select
+                      className="select select-bordered select-lg w-full"
+                      value={selectedNama}
+                      onChange={(e) => setSelectedNama(e.target.value)}
+                    >
+                      <option value="">——— PILIH SEKOLAH ———</option>
+                      {namaSekolah.map((nama) => (
+                        <option key={nama} value={nama}>
+                          {nama}
+                        </option>
+                      ))}
+                    </select>
+                  </label>
+
+                  {dataTerpilih ? (
+                    <div className="w-full overflow-x-auto rounded-xl border border-base-200 shadow-sm shadow-black mt-10">
+                      <table className="table min-w-max">
+                        <thead className="bg-[#90735f] text-base text-white font-semibold">
+                          <tr>
+                            <th>No</th>
+                            <th>NPSN</th>
+                            <th>Nama Satuan Pendidikan</th>
+                            <th>Alamat</th>
+                            <th>Kelurahan</th>
+                            <th>Status</th>
+                            <th>Jumlah Siswa</th>
+                            <th>Tautan</th>
+                          </tr>
+                        </thead>
+                        <tbody className="text-base">
+                          <tr className="hover">
+                            <td>1</td>
+                            <td>{dataTerpilih.npsn}</td>
+                            <td className="font-medium">{dataTerpilih.nama}</td>
+                            <td>{dataTerpilih.alamat}</td>
+                            <td>{dataTerpilih.kelurahan}</td>
+                            <td className="uppercase">{dataTerpilih.status}</td>
+                            <td>{dataTerpilih.jumlah_siswa}</td>
+                            <td>
+                              {dataTerpilih.tautan_sekolah ? (
+                                <a
+                                  href={dataTerpilih.tautan_sekolah}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="link underline-offset-4"
+                                >
+                                  {dataTerpilih.tautan_sekolah}
+                                </a>
+                              ) : (
+                                "-"
+                              )}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  ) : (
+                    <p className="text-lg font-medium text-gray-600 mt-10">
+                      Silakan pilih sekolah terlebih dahulu dari daftar di atas.
+                    </p>
+                  )}
+                </>
               )}
             </>
           )}
