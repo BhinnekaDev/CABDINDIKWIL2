@@ -4,7 +4,7 @@ import Image from "next/image";
 import BackgroundStrukturOrganisasi from "@/assets/img/Background5.png";
 import { useStrukturOrganisasi } from "@/hooks/useStrukturOrganisasi";
 
-export default function DataSMA() {
+export default function StrukturOrganisasi() {
   const { data, loading, error } = useStrukturOrganisasi();
 
   if (loading) {
@@ -43,7 +43,6 @@ export default function DataSMA() {
       <div className="absolute inset-0 bg-white/20 backdrop-blur-xs -z-20"></div>
 
       <div className="relative z-10 lg:px-32 px-5">
-        {/* Struktur Organisasi */}
         <div className="text-center mb-10">
           <h1 className="lg:text-3xl text-xl font-extrabold mb-4">
             Struktur Organisasi Cabang Dinas Pendidikan Wilayah II Rejang Lebong
@@ -62,9 +61,8 @@ export default function DataSMA() {
           </div>
         </div>
 
-        {/* Dokumentasi Kantor */}
         <div className="text-center mb-6">
-          <h1 className="lg:text-3xl text-xl font-extrabold mb-4">
+          <h1 className="lg:text-2xl text-xl font-extrabold mb-4">
             Dokumentasi Kantor Cabang Dinas Pendidikan Wilayah II Rejang Lebong
           </h1>
 
