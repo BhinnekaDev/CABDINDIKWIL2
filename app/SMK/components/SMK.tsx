@@ -116,6 +116,8 @@ export default function SekolahSMK() {
                             <th>Alamat</th>
                             <th>Kelurahan</th>
                             <th>Status</th>
+                            <th>Jumlah Siswa</th>
+                            <th>Tautan</th>
                           </tr>
                         </thead>
                         <tbody className="text-base">
@@ -126,6 +128,21 @@ export default function SekolahSMK() {
                             <td>{dataTerpilih.alamat}</td>
                             <td>{dataTerpilih.kelurahan}</td>
                             <td className="uppercase">{dataTerpilih.status}</td>
+                            <td>{dataTerpilih.jumlah_siswa}</td>
+                            <td>
+                              {dataTerpilih.tautan_sekolah ? (
+                                <a
+                                  href={dataTerpilih.tautan_sekolah}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="link underline-offset-4"
+                                >
+                                  {dataTerpilih.tautan_sekolah}
+                                </a>
+                              ) : (
+                                "-"
+                              )}
+                            </td>
                           </tr>
                         </tbody>
                       </table>
